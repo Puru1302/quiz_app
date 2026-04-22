@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            background: #ffffff;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .login-btn:hover {
+            background: #f1f1f1;
+            transform: scale(1.05);
+        }
+
+        .dashboard-btn {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .dashboard-btn:hover {
+            background: white;
+            color: #333;
+            transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    
+    <div class="icon">🎯</div>
+
+    <h1>Quiz App</h1>
+    <p>Test your skills with our smart quiz system</p>
+
+    <a href="/login">
+        <button class="btn login-btn">Login with Google</button>
+    </a>
+
+    <a href="/dashboard">
+        <button class="btn dashboard-btn">Go to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+</html>

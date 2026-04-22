@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Timer: <span id="timer">10</span></h2>
+<form id="form">
+{% for q in questions %}
+<p>{{q.question}}</p>
+<input type="radio" name="{{q.id}}" value="{{q.option1}}">{{q.option1}}<br>
+<input type="radio" name="{{q.id}}" value="{{q.option2}}">{{q.option2}}<br>
+<input type="radio" name="{{q.id}}" value="{{q.option3}}">{{q.option3}}<br>
+<input type="radio" name="{{q.id}}" value="{{q.option4}}">{{q.option4}}<br>
+{% endfor %}
+<button type="button" onclick="submitQuiz()">Submit</button>
+</form>
+
+<audio id="c" src="/static/correct.mp3"></audio>
+<audio id="w" src="/static/wrong.mp3"></audio>
+
+<script>
+let t=10;
+setInterval(()=>{
+ t--; document.getElementById('timer').innerText=t;
+ if(t<=0) submitQuiz();
+},1000);
+
+// Anti-cheat
+ document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){alert('Cheating detected');submitQuiz();}
+ });
+
+function submitQuiz(){
+ let d={}; new FormData(document.getElementById('form')).forEach((v,k)=>d[k]=v);
+ fetch('/submit_quiz',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+ .then(r=>r.json()).then(r=>{alert('Score:'+r.score);location='/leaderboard';});
+}
+</script>
+</body>
+</html>
